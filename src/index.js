@@ -1,11 +1,24 @@
 var moment = require('moment');
-// var lodash = require('lodash');
+const { clipboard, nativeImage } = require('electron');
+var lodash = require('lodash');
+
+// console.log('debug moment:',moment);
 
 export const fn = ({ term, display }) => {
   // Put your plugin code here
   if(term === "sat"){
-    display({
-      title: `You've entered ${term} hi carlo`
+    var list = getStaturdayList(2);
+    lodash.map(list,(data,key)=>{
+      // console.log('data is:',data,'key is:',key);
+      var str = data.format('YYYY-MM-DD');
+      var newstr = "\n#due "+str+"\n/due "+str+'\n\n';
+      // console.log('new str is:%s',newstr);
+      display({
+        title: `Next Stat ${str}`,
+        onSelect:()=>{
+          clipboard.writeText(`${newstr}`);
+        }
+      });
     });
   }
 };
@@ -18,9 +31,10 @@ function getStaturdayList(length){
   if(length <= 0){
     return [];
   }
+  var tempisoWeekday ;
   while(index < length){
-    isoWeekday = now.isoWeekday();
-    if(isoWeekday == 6){
+    tempisoWeekday = now.isoWeekday();
+    if(tempisoWeekday == 6){
       stat_lists[stat_lists.length] = now.clone();
       index++;
     }
