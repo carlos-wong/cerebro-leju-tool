@@ -917,13 +917,13 @@ cerebro-scripts@0.0.19:
     url-loader "^0.5.7"
     webpack "2.5.1"
 
-cerebro-tools@0.1.8:
+cerebro-tools@^0.1.8:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/cerebro-tools/-/cerebro-tools-0.1.8.tgz#876e5eff7ab036fdbcee283bdfa2939e989d6314"
   dependencies:
     memoizee "^0.4.1"
 
-cerebro-ui@0.0.16:
+cerebro-ui@^0.0.16:
   version "0.0.16"
   resolved "https://registry.yarnpkg.com/cerebro-ui/-/cerebro-ui-0.0.16.tgz#55695c26862ebd9a9e44646feb0b475c208d010e"
   dependencies:
@@ -2705,6 +2705,10 @@ minimist@~0.0.1:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
     minimist "0.0.8"
+
+moment@^2.19.1:
+  version "2.19.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.19.1.tgz#56da1a2d1cbf01d38b7e1afc31c10bcfa1929167"
 
 ms@2.0.0:
   version "2.0.0"

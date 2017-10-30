@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "dependencies": {
     "cerebro-tools": "^0.1.8",
-    "cerebro-ui": "^0.0.16"
+    "cerebro-ui": "^0.0.16",
+    "lodash": "^4.17.4",
+    "moment": "^2.19.1"
   },
   "devDependencies": {
     "cerebro-scripts": "0.0.19"
