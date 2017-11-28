@@ -7,11 +7,11 @@ var lodash = require('lodash');
 export const fn = ({ term, display }) => {
   // Put your plugin code here
   if(term === "sat"){
-    var list = getStaturdayList(2);
+    var list = getStaturdayList(6);
     lodash.map(list,(data,key)=>{
       // console.log('data is:',data,'key is:',key);
       var str = data.format('YYYY-MM-DD');
-      var newstr = "\n#due "+str+"\n/due "+str+'\n\n';
+      var newstr = "\n#due "+str+"\n/due "+str+'\n\n继续跟进\n';
       // console.log('new str is:%s',newstr);
       display({
         title: `Next Stat ${str}`,
