@@ -9,12 +9,13 @@ export const fn = ({ term, display }) => {
   if(term === "sat"){
     var list = getStaturdayList(6);
     lodash.map(list,(data,key)=>{
-      // console.log('data is:',data,'key is:',key);
+      // console.log('data is:',moment(data).week(),'key is:',key);
+      var week_index = moment(data).week();
       var str = data.format('YYYY-MM-DD');
-      var newstr = "\n#due "+str+"\n/due "+str+'\n\n继续跟进\n';
+      var newstr = "\n#due "+str+"\n/due "+str+'\n\n继续跟进\n @qjx \n';
       // console.log('new str is:%s',newstr);
       display({
-        title: `Next Stat ${str}`,
+        title: `Next W:${week_index} Stat ${str}`,
         onSelect:()=>{
           clipboard.writeText(`${newstr}`);
         }
@@ -22,7 +23,6 @@ export const fn = ({ term, display }) => {
     });
   }
 };
-
 
 function getStaturdayList(length){
   var now = moment();
