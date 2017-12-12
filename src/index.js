@@ -12,7 +12,7 @@ export const fn = ({ term, display }) => {
       // console.log('data is:',moment(data).week(),'key is:',key);
       var week_index = moment(data).week();
       var str = data.format('YYYY-MM-DD');
-      var newstr = "\n#due "+str+"\n/due "+str+'\n\n继续跟进\n @qjx \n';
+      var newstr = "\n#due "+str+"\n/due "+str+'\n\n日期调整\n @qjx \n';
       // console.log('new str is:%s',newstr);
       display({
         title: `Next W:${week_index} Stat ${str}`,
