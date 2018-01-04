@@ -22,6 +22,24 @@ export const fn = ({ term, display }) => {
       });
     });
   }
+  else if(term === 'planed'){
+    display({
+      title: `Copy Planed softdev-qa-bot`,
+      onSelect:()=>{
+        clipboard.writeText(`/assign @Softdev-QA-bot \n
+                             /label ~"softdev-in-process" `);
+      }
+    });
+  }
+  else if(term == 'unplaned'){
+    display({
+      title: `Copy unPlaned softdev-qa-bot`,
+      onSelect:()=>{
+        clipboard.writeText(`/assign @carlos \n
+                             /unlabel ~"softdev-in-process" `);
+      }
+    });
+  }
 };
 
 function getStaturdayList(length){
