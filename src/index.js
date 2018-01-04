@@ -18,25 +18,30 @@ export const fn = ({ term, display }) => {
         title: `Next W:${week_index} Stat ${str}`,
         onSelect:()=>{
           clipboard.writeText(`${newstr}`);
+
         }
       });
     });
   }
-  else if(term === 'planed'){
+  else if(term === 'plan'){
     display({
       title: `Copy Planed softdev-qa-bot`,
       onSelect:()=>{
-        clipboard.writeText(`/assign @Softdev-QA-bot \n
-                             /label ~"softdev-in-process" `);
+        clipboard.writeText(`\/label ~"softdev-in-process"\n\n\/assign @Softdev-QA-bot `);
       }
     });
-  }
-  else if(term == 'unplaned'){
     display({
       title: `Copy unPlaned softdev-qa-bot`,
       onSelect:()=>{
-        clipboard.writeText(`/assign @carlos \n
-                             /unlabel ~"softdev-in-process" `);
+        clipboard.writeText(`\/unlabel ~"softdev-in-process"\n\n\/assign @carlos `);
+      }
+    });
+  }
+  else if(term == 'fix'){
+    display({
+      title: `unfixed copy to clipboard`,
+      onSelect:()=>{
+        clipboard.writeText(`\/unlabel ~"softdev-fixed"\n\n\/assign @Softdev-QA-bot `);
       }
     });
   }
