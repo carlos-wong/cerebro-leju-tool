@@ -39,9 +39,15 @@ export const fn = ({ term, display }) => {
   }
   else if(term == 'fix'){
     display({
-      title: `unfixed copy to clipboard`,
+      title: `QA unfixed copy to clipboard`,
       onSelect:()=>{
         clipboard.writeText(`\/unlabel ~"softdev-fixed"\n\n\/assign @Softdev-QA-bot `);
+      }
+    });
+    display({
+      title: `issue unfixed copy to clipboard`,
+      onSelect:()=>{
+        clipboard.writeText(`\/reopen\n\n查看QA 的回复 `);
       }
     });
   }
