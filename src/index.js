@@ -4,9 +4,26 @@ var lodash = require('lodash');
 
 // console.log('debug moment:',moment);
 
+function ljkeyword_creater(term,keyword,callback){
+  if(keyword.indexOf(term) !== -1){
+    callback();
+  }
+}
+
 export const fn = ({ term, display }) => {
   // Put your plugin code here
-  if(term === "sat"){
+
+  ljkeyword_creater(term,'ljchangelog',()=>{
+    display({
+      title: `Changelog Template`,
+      onSelect:()=>{
+        clipboard.writeText('Changelog: '+clipboard.readText());
+
+      }
+    });
+  });
+
+  ljkeyword_creater(term,'ljsat',()=>{
     var list = getStaturdayList(6);
     lodash.map(list,(data,key)=>{
       // console.log('data is:',moment(data).week(),'key is:',key);
@@ -22,8 +39,9 @@ export const fn = ({ term, display }) => {
         }
       });
     });
-  }
-  else if(term === 'plan'){
+  });
+
+  ljkeyword_creater(term,'ljplan',()=>{
     display({
       title: `Copy Planed softdev-qa-bot`,
       onSelect:()=>{
@@ -36,8 +54,15 @@ export const fn = ({ term, display }) => {
         clipboard.writeText(`\/unlabel ~"softdev-in-process"\n\n\/assign @carlos `);
       }
     });
-  }
-  else if(term == 'fix'){
+    display({
+      title: `Assign PM after planed`,
+      onSelect:()=>{
+        clipboard.writeText(`@qjx 开发工单已经安排完毕\n\n\/assign @qjx `);
+      }
+    });
+  });
+
+  ljkeyword_creater(term,'ljfix',()=>{
     display({
       title: `QA unfixed copy to clipboard`,
       onSelect:()=>{
@@ -47,10 +72,10 @@ export const fn = ({ term, display }) => {
     display({
       title: `issue unfixed copy to clipboard`,
       onSelect:()=>{
-        clipboard.writeText(`\/reopen\n\n查看QA 的回复 `);
+        clipboard.writeText(`\/reopen\n\n查看 QA 的测试问题 `);
       }
     });
-  }
+  });
 };
 
 function getStaturdayList(length){
