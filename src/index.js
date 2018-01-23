@@ -23,6 +23,16 @@ export const fn = ({ term, display }) => {
     });
   });
 
+  ljkeyword_creater(term,'ljfeatureplan',()=>{
+    display({
+      title: `gitlab feature plan is created`,
+      onSelect:()=>{
+        clipboard.writeText('\/label ~"softdev-plan-created"');
+
+      }
+    });
+  });
+
   ljkeyword_creater(term,'ljnotsoftdev',()=>{
     display({
       title: `gitlab not softdev`,
