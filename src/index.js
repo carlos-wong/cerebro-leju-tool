@@ -17,7 +17,17 @@ export const fn = ({ term, display }) => {
     display({
       title: `Changelog Template`,
       onSelect:()=>{
-        clipboard.writeText('Changelog: '+clipboard.readText());
+        clipboard.writeText('Changelog: 修复 '+clipboard.readText());
+
+      }
+    });
+  });
+
+  ljkeyword_creater(term,'ljnotsoftdev',()=>{
+    display({
+      title: `gitlab not softdev`,
+      onSelect:()=>{
+        clipboard.writeText('\/label ~"not-softdev"');
 
       }
     });
