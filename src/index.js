@@ -10,14 +10,41 @@ function ljkeyword_creater(term,keyword,callback){
   }
 }
 
-export const fn = ({ term, display }) => {
+function display_app(scope,value){
+  // console.log('debug search display app value',value);
+  scope.display({
+    title:value,
+    onSelect: (event)=>{
+      scope.actions.open(`file://${value}`);
+    },
+    icon:`${value}`
+  });
+}
+
+export const fn = (scope) => {
+  var { term, display } = scope;
   // Put your plugin code here
+  ljkeyword_creater(term,'iterm',()=>{
+    display_app(scope,'/Applications/iTerm.app');
+  });
+
+  ljkeyword_creater(term,'chrome',()=>{
+    display_app(scope,'/Applications/Google\ Chrome.app');
+  });
+
+  ljkeyword_creater(term,'emacs',()=>{
+    display_app(scope,'/Applications/Emacs.app');
+  });
+
+  ljkeyword_creater(term,'wechat',()=>{
+    display_app(scope,'/Applications/WeChat.app');
+  });
 
   ljkeyword_creater(term,'ljchangelog',()=>{
     display({
       title: `Changelog Template`,
       onSelect:()=>{
-        clipboard.writeText('Changelog: 修复 '+clipboard.readText());
+        clipboard.writeText('\n\n\nChangelog: 修复 '+clipboard.readText());
 
       }
     });
@@ -28,6 +55,16 @@ export const fn = ({ term, display }) => {
       title: `gitlab feature plan is created`,
       onSelect:()=>{
         clipboard.writeText('\/label ~"softdev-plan-created"');
+
+      }
+    });
+  });
+
+  ljkeyword_creater(term,'ljfeatureaccept',()=>{
+    display({
+      title: `gitlab feature is accept`,
+      onSelect:()=>{
+        clipboard.writeText('\/label ~"softdev-accept"');
 
       }
     });
