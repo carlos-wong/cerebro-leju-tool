@@ -50,6 +50,16 @@ export const fn = (scope) => {
     });
   });
 
+  ljkeyword_creater(term,'ljqa',()=>{
+    display({
+      title: `Assign to QA bot`,
+      onSelect:()=>{
+        clipboard.writeText('/assign @soft-qa-plan-bot');
+
+      }
+    });
+  });
+
   ljkeyword_creater(term,'ljfeatureplan',()=>{
     display({
       title: `gitlab feature plan is created`,
@@ -60,11 +70,21 @@ export const fn = (scope) => {
     });
   });
 
+  ljkeyword_creater(term,'ljok',()=>{
+    display({
+      title: `gitlab reply ok`,
+      onSelect:()=>{
+        clipboard.writeText('ok');
+
+      }
+    });
+  });
+
   ljkeyword_creater(term,'ljfeatureaccept',()=>{
     display({
       title: `gitlab feature is accept`,
       onSelect:()=>{
-        clipboard.writeText('\/label ~"softdev-accept"');
+        clipboard.writeText('\/label ~"softdev-accept"\n\/assign @carlos');
 
       }
     });
